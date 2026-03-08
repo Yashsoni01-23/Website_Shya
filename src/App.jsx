@@ -1,0 +1,56 @@
+// src/App.jsx
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import Navbar from './Navbar';
+import Title from './Title';
+import About from './About';
+import Basicdetail from './Basicdetails';
+import Overview from './Overview';
+import Feedback from './Feedback';
+import Contact from './Contact';
+import Footer from './Footer';
+
+import Myprojects from './Myprojects';
+import Ecommerce from './Ecommerce';
+import Export from './Export';
+import ScrollToTop from './ScrollToTop';
+
+const App = () => {
+  return (
+    <Router>
+      <ScrollToTop/>
+      <div className="flex flex-col min-h-screen">
+        {/* This always shows on all pages */}
+        <Navbar />
+
+        {/* Main page content */}
+        <main className="flex-grow">
+          <Routes>
+            {/* Home Page */}
+            <Route path="/" element={
+              <>
+                <Title />
+                <About />
+                <Basicdetail />
+                <Overview />
+                <Feedback />
+                <Contact />
+              </>
+            } />
+
+            {/* Other Pages */}
+            <Route path="/projects" element={<Myprojects />} />
+            <Route path="/ecommerce" element={<Ecommerce />} />
+            <Route path="/exports" element={<Export />} />
+          </Routes>
+        </main>
+
+        {/* This also always shows on all pages */}
+        <Footer />
+      </div>
+    </Router>
+  );
+};
+
+export default App;
