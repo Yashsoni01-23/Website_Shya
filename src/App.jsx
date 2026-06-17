@@ -15,6 +15,7 @@ import Myprojects from './Myprojects';
 import Ecommerce from './Ecommerce';
 import Export from './Export';
 import ScrollToTop from './ScrollToTop';
+import Newcustomer from './Newcustomer'; // Yeh import hona zaroori hai
 
 const App = () => {
   return (
@@ -27,7 +28,8 @@ const App = () => {
         {/* Main page content */}
         <main className="flex-grow">
           <Routes>
-            {/* Home Page */}
+            
+            {/* 1. HOME PAGE - Yahan se Newcustomer hata diya gaya hai */}
             <Route path="/" element={
               <>
                 <Title />
@@ -39,10 +41,15 @@ const App = () => {
               </>
             } />
 
+            {/* 2. NEW CUSTOMER WELCOME PAGE - Yeh ek alag route hona chahiye */}
+            {/* Jab Navbar se 'navigate("/newcustomer")' chalega, tab yeh page khulega */}
+            <Route path="/newcustomer" element={<Newcustomer />} />
+
             {/* Other Pages */}
             <Route path="/projects" element={<Myprojects />} />
             <Route path="/ecommerce" element={<Ecommerce />} />
             <Route path="/exports" element={<Export />} />
+            
           </Routes>
         </main>
 
